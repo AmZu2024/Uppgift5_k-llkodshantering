@@ -30,9 +30,13 @@ namespace Enkelkalkylator
         //Metod för Division  
         public double Division(double num1, double num2)
         {
-
+            //Ifall nämnaren är 0 dvs division med 0 så kommer programmet be om en ny nämnare som inte är 0
+            while (num2 == 0)
+            {
+                Console.WriteLine("Går ej att dividera med 0\nAnge en ny nämnare");
+                num2 = Convert.ToDouble(Console.ReadLine());
+            }
             return num1 / num2;
-
         }
 
         //Metod för att läsa input
