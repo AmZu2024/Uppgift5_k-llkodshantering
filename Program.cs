@@ -10,6 +10,32 @@ namespace Enkelkalkylator
             return num1 + num2;
 
         }
+
+        //Metod för subtraction  
+        public double Subtraction(double num1, double num2)
+        {
+
+            return num1 - num2;
+
+        }
+
+        //Metod för multiplication  
+        public double Multiplication(double num1, double num2)
+        {
+
+            return num1* num2;
+
+        }
+
+        //Metod för Division  
+        public double Division(double num1, double num2)
+        {
+
+            return num1/ num2;
+
+        }
+
+
     }
 
 
@@ -24,6 +50,7 @@ namespace Enkelkalkylator
             Console.WriteLine("Enkel Kalkylator");
             Console.WriteLine("Ange aoperation (+, -, *, /): ");
             char operation = Console.ReadKey().KeyChar;
+            Console.WriteLine();
             Console.WriteLine("Ange det första talet: ");
             double num1 = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Ange det andra talet: ");
@@ -39,15 +66,18 @@ namespace Enkelkalkylator
                     break;
 
                 case '-':
-                    result = num1 - num2;
+                    //Kallar på min Subtraction metod från min Calc class 
+                    result = calc.Subtraction(num1, num2);
                     break;
 
                 case '*':
-                    result = num1 * num2;
+                    //Kallar på min multiplication metod från min Calc class 
+                    result = calc.Multiplication(num1,num2);
                     break;
 
                 case '/':
-                    result = num1 / num2;
+                    //Kallar på min division metod från min Calc class 
+                    result = calc.Division(num1,num2);
                     break;
 
                 default:
