@@ -6,25 +6,19 @@ class Calc
     //Metod för addition 
     public double Addition(double num1, double num2)
     {
-
         return num1 + num2;
-
     }
 
     //Metod för subtraction  
     public double Subtraction(double num1, double num2)
     {
-
         return num1 - num2;
-
     }
 
     //Metod för multiplication  
     public double Multiplication(double num1, double num2)
     {
-
         return num1 * num2;
-
     }
 
     //Metod för Division  
@@ -65,11 +59,28 @@ class Calc
         {
             Runcalc = false;
         }
-        else if(input =="ja")
+        else if (input == "ja")
         {
-            Runcalc=true;
+            Runcalc = true;
         }
         return Runcalc;
+    }
+
+    //Metod Läsa operator
+    public char read_op()
+    {
+        char operation;
+        Console.WriteLine("Enkel Kalkylator");
+        Console.WriteLine("Ange operator (+, -, *, /):");
+        operation = Console.ReadKey().KeyChar;
+        Console.WriteLine();
+        while((operation !='+') && (operation != '-') && (operation != '*') && ( operation != '/'))
+        {
+            Console.WriteLine($"Fel inmatning! {operation} är ingen operator. Ange någon av dessa: (+, -, *, /):");
+            operation = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+        }
+        return operation;
     }
 
 }
@@ -88,10 +99,8 @@ class Program
         double num2;
         double result = 0;
         bool Runcalc = true;
-        Console.WriteLine("Enkel Kalkylator");
-        Console.WriteLine("Ange operation (+, -, *, /):");
-         operation = Console.ReadKey().KeyChar;
-        Console.WriteLine();
+        //Kallar på metoden som läser operatorn 
+        operation = calc.read_op();
         //Kallar på metoden som läser inputs och lagrar det på num1 och num2 
         num1 = calc.input();
         num2 = calc.input();
@@ -126,10 +135,10 @@ class Program
                     Console.WriteLine("Ogiltig operation.");
                     break;
             }
-            Console.WriteLine($"Resultat:{result}");
+            Console.WriteLine($"Resultat: {result}\n");
             Runcalc = calc.Run(Runcalc);
         }
-        
+
 
 
     }
