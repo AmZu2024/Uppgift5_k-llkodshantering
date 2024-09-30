@@ -3,6 +3,7 @@ namespace Enkelkalkylator
 {
     class Program
     {
+       //Kollar så att det funkar
         static void Main(string[] args)
         {
 
