@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+//PROVAR REBASE GENOM DENNA KOMMENTAR 
+
 class Calc
 {
     //Metod för addition 
