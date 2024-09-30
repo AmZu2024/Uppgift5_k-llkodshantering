@@ -1,84 +1,104 @@
 ﻿// See https://aka.ms/new-console-template for more information
-namespace Enkelkalkylator
+
+
+class Calc
 {
-    class Calc
+    //Metod för addition 
+    public double Addition(double num1, double num2)
     {
-        //Metod för addition 
-        public double Addition(double num1, double num2)
-        {
 
-            return num1 + num2;
-
-        }
-
-        //Metod för subtraction  
-        public double Subtraction(double num1, double num2)
-        {
-
-            return num1 - num2;
-
-        }
-
-        //Metod för multiplication  
-        public double Multiplication(double num1, double num2)
-        {
-
-            return num1 * num2;
-
-        }
-
-        //Metod för Division  
-        public double Division(double num1, double num2)
-        {
-            //Ifall nämnaren är 0 dvs division med 0 så kommer programmet be om en ny nämnare som inte är 0
-            while (num2 == 0)
-            {
-                Console.WriteLine("Går ej att dividera med 0\nAnge en ny nämnare");
-                num2 = Convert.ToDouble(Console.ReadLine());
-            }
-            return num1 / num2;
-        }
-
-        //Metod för att läsa input
-        public double input()
-        {
-            double result;
-            string input;
-            Console.WriteLine("Ange nummer");
-            input = Console.ReadLine();
-
-            //Gjort en tryparse som ser till att loopa så länge man inte matar in en double (siffra)
-            while (!double.TryParse(input, out result))
-            {
-                Console.WriteLine("Ogiltligt inmatning försök igen");
-                input = Console.ReadLine();
-            }
-            return result;
-
-        }
+        return num1 + num2;
 
     }
 
-    class Program
+    //Metod för subtraction  
+    public double Subtraction(double num1, double num2)
     {
-        //Kollar så att det funkar
-        static void Main(string[] args)
+
+        return num1 - num2;
+
+    }
+
+    //Metod för multiplication  
+    public double Multiplication(double num1, double num2)
+    {
+
+        return num1 * num2;
+
+    }
+
+    //Metod för Division  
+    public double Division(double num1, double num2)
+    {
+        //Ifall nämnaren är 0 dvs division med 0 så kommer programmet be om en ny nämnare som inte är 0
+        while (num2 == 0)
         {
-            // Gör instans av min klass
-            Calc calc = new Calc();
-            double num1;
-            double num2;
-            double result = 0;
-            Console.WriteLine("Enkel Kalkylator");
-            Console.WriteLine("Ange aoperation (+, -, *, /): ");
-            char operation = Console.ReadKey().KeyChar;
-            Console.WriteLine();
-            //Kallar på metoden som läser inputs och lagrar det på num1 och num2 
-            num1 = calc.input();
-            num2 = calc.input();
+            Console.WriteLine("Går ej att dividera med 0\nAnge en ny nämnare");
+            num2 = Convert.ToDouble(Console.ReadLine());
+        }
+        return num1 / num2;
+    }
+
+    //Metod för att läsa input
+    public double input()
+    {
+        double result;
+        string input;
+        Console.WriteLine("Ange nummer");
+        input = Console.ReadLine();
+
+        //Gjort en tryparse som ser till att loopa så länge man inte matar in en double (siffra)
+        while (!double.TryParse(input, out result))
+        {
+            Console.WriteLine("Ogiltligt inmatning försök igen");
+            input = Console.ReadLine();
+        }
+        return result;
+    }
+
+    //Metod för att kunna köra kalkylatorn tills man själv väljer att stänga av den
+    public bool Run(bool Runcalc)
+    {
+        Console.WriteLine("Vill du fortsätta räkna skriv ja/nej");
+        string input = Console.ReadLine().ToLower();
+        if (input == "nej")
+        {
+            Runcalc = false;
+        }
+        else if(input =="ja")
+        {
+            Runcalc=true;
+        }
+        return Runcalc;
+    }
+
+}
 
 
 
+class Program
+{
+    //Kollar så att det funkar
+    static void Main(string[] args)
+    {
+        // Gör instans av min klass
+        Calc calc = new Calc();
+        char operation;
+        double num1;
+        double num2;
+        double result = 0;
+        bool Runcalc = true;
+        Console.WriteLine("Enkel Kalkylator");
+        Console.WriteLine("Ange operation (+, -, *, /):");
+         operation = Console.ReadKey().KeyChar;
+        Console.WriteLine();
+        //Kallar på metoden som läser inputs och lagrar det på num1 och num2 
+        num1 = calc.input();
+        num2 = calc.input();
+
+
+        while (Runcalc)
+        {
             switch (operation)
             {
                 case '+':
@@ -107,9 +127,10 @@ namespace Enkelkalkylator
                     break;
             }
             Console.WriteLine($"Resultat:{result}");
-
-
-
+            Runcalc = calc.Run(Runcalc);
         }
+        
+
+
     }
 }
