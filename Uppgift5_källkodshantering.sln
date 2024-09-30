@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uppgift5_källkodshantering", "Uppgift5_källkodshantering.csproj", "{CD7FB70A-63C2-44FA-A95C-65AB2C8B4593}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD7FB70A-63C2-44FA-A95C-65AB2C8B4593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7FB70A-63C2-44FA-A95C-65AB2C8B4593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7FB70A-63C2-44FA-A95C-65AB2C8B4593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7FB70A-63C2-44FA-A95C-65AB2C8B4593}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A54C30F-9AC4-43BF-B6D5-77C40660BCDC}
+	EndGlobalSection
+EndGlobal
